@@ -1,0 +1,14 @@
+@font-face {
+    font-family: 'NotoSerifSC-Regular';
+    src: url('@/assets/fonts/NotoSerifSCRegular.woff2') format('truetype');
+}
+
+@font-face {
+    font-family: 'NotoSerifSC-Medium';
+    src: url('@/assets/fonts/NotoSerifSCMedium.woff2') format('truetype');
+}
+
+@font-face {
+    font-family: 'NotoSerifSC-SemiBold';
+    src: url('@/assets/fonts/NotoSerifSCSemiBold.woff2') format('truetype');
+}
