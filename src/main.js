@@ -26,4 +26,4 @@ axios.interceptors.request.use(
 
 app.config.globalProperties.$http = axios
 
-createApp(App).use(router).mount('#app')
+app.use(router).mount('#app')
