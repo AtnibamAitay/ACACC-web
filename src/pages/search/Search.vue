@@ -6,7 +6,7 @@
     </div>
 
     <img :src="avatar" class="avatar" alt="avatar" @click.stop="toggleTabControl">
-    <SearchEngine @empty-engine-list="handleEmptyEngineList" />
+    <SearchEngine @empty-engine-list="handleEmptyEngineList"/>
     <TabControl v-if="showTabControl"/>
     <TipBox v-if="showModal" :title="modalTitle" :content="modalContent" @closeModal="showModal = false"/>
 
@@ -24,8 +24,8 @@ import Notification from '@/components/common/Notification.vue';
 
 // 定义响应式变量
 const greet = ref('请先登录')
-const remindSentence = ref('您还未登录 Cardinal')
-const avatar = ref('https://picx.zhimg.com/v2-369a1e701063ab013872633b1a7ea7c2_xl.jpg?source=32738c0c')
+const remindSentence = ref('您还未登录 ACACC')
+const avatar = ref(localStorage.getItem('avatar') || new URL('@/assets/icon/index/Avatar.jpg', import.meta.url).href)
 const apiUrl = import.meta.env.VITE_API_LOCALHOST_BASE_PATH
 
 // 控制提示框的显示和内容
@@ -43,7 +43,6 @@ onMounted(async () => {
       // 更新页面中的文字和图片
       greet.value = '"' + res.data.data.greet + '"'
       remindSentence.value = res.data.data.remindSentence
-      avatar.value = res.data.data.avatar
     } else if (res.data.code === 2001) {
       showModal.value = true
       modalTitle.value = "请先登录"
@@ -63,7 +62,6 @@ const toggleTabControl = () => {
     modalContent.value = "请先登录。"
     return
   }
-
   showTabControl.value = !showTabControl.value
 }
 
@@ -101,7 +99,7 @@ const handleEmptyEngineList = () => {
 .greet {
   position: relative;
   font-size: 3rem;
-  font-family: 'YouSheBiaoTiHei';
+  font-family: 'YouSheBiaoTiHei',serif;
   top: 5rem;
   right: 7rem;
   margin-bottom: 0;
@@ -112,7 +110,7 @@ const handleEmptyEngineList = () => {
   top: 5rem;
   right: 7rem;
   font-size: 1.35rem;
-  font-family: 'YouSheBiaoTiHei';
+  font-family: 'YouSheBiaoTiHei',serif;
   margin-top: 0.5rem;
 }
 
